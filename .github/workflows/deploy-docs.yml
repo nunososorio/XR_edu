@@ -27,21 +27,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
       - name: Copy documentation to docs folder
         run: |
-          cp README.md docs/index.md
-          cp GETTING_STARTED.md docs/
-          cp SETUP_GUIDE.md docs/
-          cp QUICK_REFERENCE.md docs/
-          cp CUSTOMIZATION_GUIDE.md docs/
-          cp COLLECTION_TEMPLATES.md docs/
-          cp DOCKER_DEPLOYMENT.md docs/
-          cp DEVELOPER_GUIDE.md docs/
-          cp PROJECT_SUMMARY.md docs/
-          cp INDEX.md docs/documentation-index.md
+          set -euo pipefail
+          mkdir -p docs
+          cp -f README.md docs/index.md
+          cp -f GETTING_STARTED.md docs/
+          cp -f SETUP_GUIDE.md docs/
+          cp -f QUICK_REFERENCE.md docs/
+          cp -f CUSTOMIZATION_GUIDE.md docs/
+          cp -f COLLECTION_TEMPLATES.md docs/
+          cp -f DOCKER_DEPLOYMENT.md docs/
+          cp -f DEVELOPER_GUIDE.md docs/
+          cp -f PROJECT_SUMMARY.md docs/
+          cp -f INDEX.md docs/documentation-index.md
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
