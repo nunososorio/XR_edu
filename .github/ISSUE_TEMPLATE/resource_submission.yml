@@ -1,0 +1,96 @@
+name: "Resource submission / Submissao de recurso"
+description: "Submit an XR educational resource link"
+title: "[Resource] "
+labels:
+  - resource-submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por contribuir.
+        Thank you for contributing.
+
+        PT: Preencha os campos abaixo para enviar um recurso XR.
+        EN: Fill the fields below to submit an XR resource.
+
+  - type: input
+    id: resource_url
+    attributes:
+      label: "URL do recurso / Resource URL"
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: input
+    id: resource_title
+    attributes:
+      label: "Titulo / Title"
+      placeholder: "Nome do recurso"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Descricao curta / Short description"
+      placeholder: "Porque este recurso e util em contexto educativo?"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: format
+    attributes:
+      label: "Tipo / Type"
+      options:
+        - App XR
+        - Video
+        - Game
+        - Experience
+        - Article/Research
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: "Idioma do recurso / Resource language"
+      options:
+        - Portugues
+        - English
+        - Bilingual
+        - Other
+    validations:
+      required: false
+
+  - type: dropdown
+    id: target_audience
+    attributes:
+      label: "Publico-alvo / Target audience"
+      options:
+        - Ensino Basico
+        - Ensino Secundario
+        - Ensino Superior
+        - Professores
+        - Formacao Profissional
+        - Geral
+    validations:
+      required: false
+
+  - type: textarea
+    id: pedagogy
+    attributes:
+      label: "Valor pedagogico / Pedagogical value"
+      placeholder: "Que competencia ou objetivo de aprendizagem este recurso apoia?"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: "Confirmacao / Confirmation"
+      options:
+        - label: "PT: Confirmo que esta submissao nao viola direitos de autor nem conteudo indevido."
+          required: true
+        - label: "EN: I confirm this submission does not violate copyrights and contains appropriate content."
+          required: true

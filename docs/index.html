@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="XR Educational Bookmark Platform - A collaborative bookmark management system for XR applications, educational videos, games, and experiences.">
+    <meta name="description" content="XR Educational Bookmark Platform - plataforma colaborativa para guardar e partilhar recursos XR com valor pedagogico.">
     <meta name="keywords" content="XR, VR, AR, Education, Bookmark Manager, Linkwarden">
     <meta name="author" content="Nuno Sosorio">
     <meta property="og:title" content="XR Educational Bookmark Platform">
@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://nunososorio.github.io/XR_EDU/">
     <meta property="og:type" content="website">
     
-    <title>🌐 XR Educational Bookmark Platform</title>
+    <title>🌐 XR Edu | Plataforma Colaborativa</title>
     
     <style>
         * {
@@ -284,6 +284,37 @@
             font-size: 0.85em;
             font-weight: 600;
         }
+
+        .bilingual-note {
+            text-align: center;
+            color: white;
+            opacity: 0.95;
+            margin-top: 8px;
+            font-size: 0.95em;
+        }
+
+        .contribute-box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 28px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .contribute-box h2 {
+            color: #667eea;
+            margin-bottom: 12px;
+        }
+
+        .steps {
+            margin-top: 10px;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        .steps li {
+            margin-bottom: 8px;
+        }
         
         @keyframes fadeInDown {
             from {
@@ -330,27 +361,37 @@
     <div class="container">
         <header>
             <div class="logo">🌐</div>
-            <h1>XR Educational Bookmark Platform</h1>
-            <p class="subtitle">Collaborative bookmark management for XR, educational videos, games & experiences</p>
+            <h1>XR Edu | Plataforma Colaborativa de Recursos</h1>
+            <p class="subtitle">Guarda, organiza e partilha links de XR com valor pedagogico</p>
             <div class="badges">
                 <span class="badge">Open Source</span>
                 <span class="badge">Self-Hosted</span>
                 <span class="badge">Powerful</span>
                 <span class="badge">XR-Focused</span>
             </div>
+            <p class="bilingual-note">Idioma principal: Portugues • English version included below</p>
         </header>
 
         <div class="hero-description">
-            <h2>What is This?</h2>
+            <h2>O que e isto? / What is this?</h2>
             <p>
-                A collaborative bookmark management system built on <strong>Linkwarden</strong> (GNU AGPL v3.0), 
-                specifically designed for collecting, organizing, and sharing XR applications, educational videos, 
-                games, and learning experiences with pedagogical value.
+                Plataforma colaborativa baseada em <strong>Linkwarden</strong> (GNU AGPL v3.0) para colecionar, organizar e partilhar recursos XR:
+                apps, videos, jogos e experiencias com valor pedagogico.
             </p>
             <p>
-                <strong>Self-hosted, open-source, with complete data ownership.</strong> No subscriptions, no analytics tracking, 
-                no third-party control. Just your own powerful knowledge management platform.
+                <strong>EN:</strong> Open-source and collaborative platform to collect and share XR resources for education.
+                You keep control of your data and can invite others to contribute.
             </p>
+        </div>
+
+        <div class="contribute-box">
+            <h2>Como contribuir pela web / Contribute via webpage</h2>
+            <p><strong>PT:</strong> Sim, pode ser tudo feito pela web. Ha duas formas simples:</p>
+            <ol class="steps">
+                <li><strong>Submissao rapida:</strong> qualquer pessoa envia um link pelo formulario web.</li>
+                <li><strong>Colaboracao completa:</strong> utilizadores convidados podem adicionar links diretamente na plataforma Linkwarden (quando o servidor estiver ativo).</li>
+            </ol>
+            <p style="margin-top: 12px;"><strong>EN:</strong> Yes. People can submit links through a web form, and invited members can also add links directly in Linkwarden.</p>
         </div>
 
         <div class="features-grid">
@@ -387,8 +428,8 @@
         </div>
 
         <div class="cta-buttons">
-            <a href="index.md" class="btn btn-primary">📖 Read Documentation</a>
-            <a href="https://github.com/nunososorio/XR_EDU" class="btn btn-secondary">⭐ GitHub Repository</a>
+            <a href="https://github.com/nunososorio/XR_edu/issues/new?template=resource_submission.yml" class="btn btn-primary">➕ Submeter Recurso / Submit Resource</a>
+            <a href="index.md" class="btn btn-secondary">📖 Guia (PT + EN)</a>
         </div>
 
         <div class="documentation">
