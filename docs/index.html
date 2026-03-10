@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XR Educational Bookmark Platform - A collaborative bookmark management system for XR applications, educational videos, games, and experiences.">
+    <meta name="keywords" content="XR, VR, AR, Education, Bookmark Manager, Linkwarden">
+    <meta name="author" content="Nuno Sosorio">
+    <meta property="og:title" content="XR Educational Bookmark Platform">
+    <meta property="og:description" content="Collaborative bookmark management platform for XR educational content">
+    <meta property="og:url" content="https://nunososorio.github.io/XR_EDU/">
+    <meta property="og:type" content="website">
+    
+    <title>🌐 XR Educational Bookmark Platform</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        .logo {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .hero-description {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero-description h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .hero-description p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .documentation {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .documentation h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .doc-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .doc-card:hover {
+            border-color: #667eea;
+            background: #f9f7ff;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .doc-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .doc-card p {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .doc-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .doc-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .cta-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #f9f7ff;
+            transform: translateY(-2px);
+        }
+        
+        .info-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .info-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .info-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        
+        .info-section li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            color: white;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .logo {
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🌐</div>
+            <h1>XR Educational Bookmark Platform</h1>
+            <p class="subtitle">Collaborative bookmark management for XR, educational videos, games & experiences</p>
+            <div class="badges">
+                <span class="badge">Open Source</span>
+                <span class="badge">Self-Hosted</span>
+                <span class="badge">Powerful</span>
+                <span class="badge">XR-Focused</span>
+            </div>
+        </header>
+
+        <div class="hero-description">
+            <h2>What is This?</h2>
+            <p>
+                A collaborative bookmark management system built on <strong>Linkwarden</strong> (GNU AGPL v3.0), 
+                specifically designed for collecting, organizing, and sharing XR applications, educational videos, 
+                games, and learning experiences with pedagogical value.
+            </p>
+            <p>
+                <strong>Self-hosted, open-source, with complete data ownership.</strong> No subscriptions, no analytics tracking, 
+                no third-party control. Just your own powerful knowledge management platform.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3>Auto-Capture</h3>
+                <p>Screenshots, PDFs, and full-page HTML of every resource</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📂</div>
+                <h3>Organized</h3>
+                <p>Collections, sub-collections, and smart tagging system</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Searchable</h3>
+                <p>Full-text search with MeiliSearch for instant results</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Collaborative</h3>
+                <p>Share collections with teams and manage permissions</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>XR-Focused</h3>
+                <p>Track platforms, pedagogical goals, age groups, accessibility</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure</h3>
+                <p>Self-hosted on your own infrastructure, complete control</p>
+            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="index.md" class="btn btn-primary">📖 Read Documentation</a>
+            <a href="https://github.com/nunososorio/XR_EDU" class="btn btn-secondary">⭐ GitHub Repository</a>
+        </div>
+
+        <div class="documentation">
+            <h2>📚 Documentation</h2>
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <h3>🚀 Getting Started</h3>
+                    <p>New to the platform? Start here for a 5-minute introduction and quick setup guide.</p>
+                    <a href="GETTING_STARTED.md">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>📋 Setup Guide</h3>
+                    <p>Complete installation instructions for local development and production deployment.</p>
+                    <a href="SETUP_GUIDE.md">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>⚡ Quick Reference</h3>
+                    <p>Essential commands, troubleshooting, and quick tips for daily use.</p>
+                    <a href="QUICK_REFERENCE.md">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>🎨 Customization</h3>
+                    <p>Learn how to customize the platform for XR educational content.</p>
+                    <a href="CUSTOMIZATION_GUIDE.md">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>📦 Collections</h3>
+                    <p>Recommended content organization structures and tagging strategies.</p>
+                    <a href="COLLECTION_TEMPLATES.md">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>🌐 Deployment</h3>
+                    <p>Production deployment, scaling, security hardening, and backup strategies.</p>
+                    <a href="DOCKER_DEPLOYMENT.md">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>👨‍💻 Developer Guide</h3>
+                    <p>In-depth guide for code modifications, database customization, and API extensions.</p>
+                    <a href="DEVELOPER_GUIDE.md">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>📊 Project Summary</h3>
+                    <p>Executive overview, implementation roadmap, and success criteria.</p>
+                    <a href="PROJECT_SUMMARY.md">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>📖 Documentation Index</h3>
+                    <p>Complete index and navigation guide to all documentation.</p>
+                    <a href="documentation-index.md">Read Guide →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>Key Features</h3>
+            <ul>
+                <li>Bookmark collection with automatic preservation</li>
+                <li>Full-text search powered by MeiliSearch</li>
+                <li>Team collaboration with permission management</li>
+                <li>XR platform metadata (Quest, Vision Pro, WebXR, etc.)</li>
+                <li>Pedagogical information tracking</li>
+                <li>Age/grade level targeting</li>
+                <li>Accessibility feature documentation</li>
+                <li>Reader view with annotations and highlighting</li>
+                <li>Public collections and sharing</li>
+                <li>REST API for integrations</li>
+                <li>Docker deployment ready</li>
+                <li>PostgreSQL + MeiliSearch stack</li>
+            </ul>
+        </div>
+
+        <div class="info-section">
+            <h3>Quick Start</h3>
+            <ul>
+                <li>Clone the <a href="https://github.com/nunososorio/XR_EDU">GitHub repository</a></li>
+                <li>Run <code>docker-compose up -d</code> in the linkwarden directory</li>
+                <li>Visit <code>http://localhost:3000</code></li>
+                <li>Create your first collection</li>
+                <li>Start organizing XR educational content</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p><strong>XR Educational Bookmark Platform</strong></p>
+            <p>Built on <a href="https://linkwarden.app" target="_blank">Linkwarden</a> - Open Source Bookmark Manager</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                <a href="https://github.com/nunososorio/XR_EDU" target="_blank">GitHub Repository</a> •
+                <a href="https://linkwarden.app" target="_blank">Linkwarden</a> •
+                <a href="https://github.com/linkwarden/linkwarden" target="_blank">Linkwarden Repository</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85em; opacity: 0.8;">
+                License: GNU Affero General Public License v3.0 | Created: March 10, 2026
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+theme: jekyll-theme-slate
+title: XR Educational Bookmark Platform
+description: Collaborative bookmark management for XR educational content
+show_downloads: false
+
+# Site configuration
+url: "https://nunososorio.github.io/XR_EDU"
+baseurl: "/XR_EDU"
+repository: "nunososorio/XR_EDU"
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Getting Started
+    url: /GETTING_STARTED.md
+  - title: Setup Guide
+    url: /SETUP_GUIDE.md
+  - title: GitHub
+    url: https://github.com/nunososorio/XR_EDU
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-github-metadata
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-titles-from-headings
+
+# Include files
+include:
+  - GETTING_STARTED.md
+  - SETUP_GUIDE.md
+  - QUICK_REFERENCE.md
+  - CUSTOMIZATION_GUIDE.md
+  - COLLECTION_TEMPLATES.md
+  - DOCKER_DEPLOYMENT.md
+  - DEVELOPER_GUIDE.md
+  - PROJECT_SUMMARY.md
+  - INDEX.md
+
+# Exclude files
+exclude:
+  - linkwarden
+  - .git
+  - .gitignore
+  - node_modules
+  - "*.gem"
+  - "*.gemspec"
+  - Gemfile
+  - Gemfile.lock
+  - README.md
