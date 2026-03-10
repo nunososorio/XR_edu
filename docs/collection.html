@@ -3,155 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Colecao publica de recursos XR educativos">
-  <title>XR Edu Collection</title>
+  <meta name="description" content="Catalogo colaborativo de recursos XR educativos">
+  <title>XR Edu Catalogo</title>
   <style>
     :root {
-      --bg: #f3f5fb;
+      --bg: #f4f7fb;
       --surface: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --primary: #3556d8;
-      --accent: #0ea5a4;
-      --border: #e5e7eb;
+      --text: #132033;
+      --muted: #5b6777;
+      --primary: #0f5ea8;
+      --secondary: #0f766e;
+      --accent: #f59e0b;
+      --border: #dfe7f2;
+      --chip: #ecf5ff;
+      --chip-active: #0f5ea8;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Segoe UI, Arial, sans-serif;
+      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #e8eeff 0%, var(--bg) 220px);
+      background:
+        radial-gradient(1000px 400px at 100% -50px, #d6eeff 0%, transparent 60%),
+        radial-gradient(800px 300px at -100px 0, #fff3d7 0%, transparent 60%),
+        var(--bg);
     }
+
     .wrap {
-      max-width: 980px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 24px 16px 40px;
     }
-    .hero {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      margin-bottom: 18px;
-    }
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: 1.8rem;
-    }
-    .hero p {
-      margin: 4px 0;
-      color: var(--muted);
-    }
-    .actions {
+
+    .topbar {
       display: flex;
-      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
       flex-wrap: wrap;
-      margin-top: 14px;
     }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
-      border-radius: 10px;
-      padding: 10px 14px;
+      border-radius: 999px;
+      padding: 8px 12px;
       font-weight: 600;
       border: 1px solid var(--border);
       background: #fff;
       color: var(--text);
+      font-size: 0.9rem;
+      transition: 0.2s ease;
     }
-    .btn-primary {
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-main {
       background: var(--primary);
-      color: #fff;
       border-color: var(--primary);
+      color: #fff;
     }
-    .meta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin: 14px 0 0;
+
+    .btn-subtle {
       color: var(--muted);
-      font-size: 0.94rem;
+      background: #fff;
+      border-color: var(--border);
+      font-weight: 500;
     }
-    .panel {
+
+    .hero {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(15, 40, 80, 0.08);
+      margin-bottom: 18px;
     }
-    .search-wrap {
-      margin-bottom: 12px;
+
+    .hero h1 {
+      margin: 0 0 6px;
+      font-size: 2rem;
     }
-    .search-input {
-      width: 100%;
+
+    .hero p {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+
+    .hero-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    .metric b {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .metric span {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .toolbar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 28px rgba(15, 40, 80, 0.08);
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-input,
+    .sort-select {
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 10px 12px;
-      font-size: 0.98rem;
-      outline: none;
+      font-size: 0.95rem;
       background: #fff;
       color: var(--text);
     }
-    .search-input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(53, 86, 216, 0.12);
+
+    .search-input {
+      flex: 1 1 320px;
+      min-width: 220px;
     }
-    .howto {
+
+    .sort-select { min-width: 190px; }
+
+    .meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .chip {
+      border: 1px solid #d5e7fb;
+      background: var(--chip);
+      color: #184979;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .chip.active {
+      background: var(--chip-active);
+      color: #fff;
+      border-color: var(--chip-active);
+    }
+
+    .panel {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      margin-bottom: 18px;
+      box-shadow: 0 10px 28px rgba(15, 40, 80, 0.08);
     }
-    .howto h2 {
-      margin: 0 0 8px;
-      font-size: 1.2rem;
-    }
-    .howto ol {
-      margin: 8px 0 0 18px;
-      color: var(--text);
-    }
-    .howto li {
-      margin-bottom: 6px;
-    }
-    .hint {
-      color: var(--muted);
-      font-size: 0.94rem;
-      margin-top: 8px;
-    }
+
     .list {
       display: grid;
       gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
+
     .item {
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 12px;
-      background: #fff;
+      padding: 13px;
+      background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
+      transition: 0.2s ease;
     }
+
+    .item:hover {
+      transform: translateY(-2px);
+      border-color: #bfd3ea;
+      box-shadow: 0 8px 22px rgba(15, 40, 80, 0.08);
+    }
+
     .item h3 {
-      margin: 0 0 6px;
-      font-size: 1.05rem;
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      line-height: 1.35;
     }
+
+    .item a {
+      color: #0f3f72;
+      text-decoration: none;
+    }
+
+    .item a:hover { text-decoration: underline; }
+
     .item p {
       margin: 0 0 8px;
       color: var(--muted);
+      font-size: 0.9rem;
     }
+
+    .item-meta {
+      color: #6f7a88;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+
     .tags {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 8px;
     }
+
     .tag {
       font-size: 0.78rem;
       border-radius: 999px;
       padding: 4px 8px;
-      background: #eef2ff;
-      color: #374151;
-      border: 1px solid #dbe3ff;
+      background: #fff9ec;
+      color: #7b4b00;
+      border: 1px solid #ffe0ab;
     }
+
     .empty {
       color: var(--muted);
       padding: 10px;
@@ -159,46 +275,93 @@
       border-radius: 10px;
       background: #fafafa;
     }
+
+    .howto {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .howto b { color: var(--text); }
+
+    @media (max-width: 760px) {
+      .hero h1 { font-size: 1.65rem; }
+      .list { grid-template-columns: 1fr; }
+      .controls { flex-direction: column; align-items: stretch; }
+      .sort-select { width: 100%; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <section class="hero">
-      <h1>Colecao XR Edu</h1>
-      <p><strong>PT:</strong> Este e o catalogo publico de recursos XR com valor pedagogico.</p>
-      <p><strong>EN:</strong> This is the public catalog of XR resources with pedagogical value.</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="https://github.com/nunososorio/XR_edu/issues/new?template=resource_submission.yml">Submeter recurso / Submit resource</a>
-        <a class="btn" href="documentation-index.md">Guia / Docs</a>
+    <div class="topbar">
+      <div class="brand">XR Edu Catalogo</div>
+      <div class="top-actions">
+        <a class="btn btn-subtle" href="https://github.com/nunososorio/XR_edu/issues/new?template=resource_submission.yml">Submeter recurso</a>
+        <a class="btn" href="documentation-index.md">Guia</a>
       </div>
-      <div class="meta">
-        <span id="count">0 recursos</span>
-        <span>Atualizado automaticamente via GitHub Pages</span>
+    </div>
+
+    <section class="hero">
+      <h1>Catalogo colaborativo de recursos XR</h1>
+      <p><strong>PT:</strong> Pesquise, filtre e explore recursos com valor pedagogico.</p>
+      <p><strong>EN:</strong> Search, filter, and explore educational XR resources.</p>
+      <div class="hero-grid">
+        <div class="metric"><b id="metric-total">0</b><span>Total de recursos</span></div>
+        <div class="metric"><b id="metric-shown">0</b><span>Resultados atuais</span></div>
+        <div class="metric"><b id="metric-tags">0</b><span>Tags disponiveis</span></div>
+        <div class="metric"><b id="metric-filter">Sem filtro</b><span>Filtro ativo</span></div>
       </div>
     </section>
 
-    <section class="howto">
-      <h2>Como submeter um link (super simples)</h2>
-      <ol>
-        <li>Clique em <strong>Submeter recurso</strong>.</li>
-        <li>Preencha URL + titulo + descricao curta.</li>
-        <li>Envie. O recurso aparece apos revisao.</li>
-      </ol>
-      <p class="hint"><strong>EN:</strong> Click Submit resource, fill URL/title/short description, send. It is published after review.</p>
+    <section class="toolbar">
+      <div class="controls">
+        <input id="search" class="search-input" type="search" placeholder="Pesquisar por titulo, descricao, URL ou tag..." aria-label="Pesquisar recursos">
+        <select id="sort" class="sort-select" aria-label="Ordenar resultados">
+          <option value="relevance">Ordenar: Relevancia</option>
+          <option value="title-asc">Ordenar: Titulo A-Z</option>
+          <option value="title-desc">Ordenar: Titulo Z-A</option>
+          <option value="domain-asc">Ordenar: Dominio A-Z</option>
+        </select>
+        <button id="clear" class="btn" type="button">Limpar filtros</button>
+      </div>
+      <div class="meta">
+        <span id="count">0 recurso(s)</span>
+        <span>Atualizado automaticamente via GitHub Pages</span>
+      </div>
+      <div id="chips" class="chips"></div>
+      <div class="howto">
+        <b>Submissao rapida:</b> clique em "Submeter recurso", preencha URL + titulo + descricao e envie.
+        <br>
+        <b>EN:</b> Click "Submeter recurso", fill URL + title + description, then submit.
+      </div>
     </section>
 
     <section class="panel">
-      <div class="search-wrap">
-        <input id="search" class="search-input" type="search" placeholder="Pesquisar recursos... / Search resources..." aria-label="Pesquisar recursos">
-      </div>
       <div id="list" class="list"></div>
       <div id="empty" class="empty" style="display:none;">
-        Ainda nao ha recursos publicados. Use o botao de submissao para enviar o primeiro.
+        Nenhum resultado para os filtros atuais. Experimente limpar filtros.
       </div>
     </section>
   </div>
 
   <script>
+    const state = {
+      allItems: [],
+      activeTag: '',
+      query: '',
+      sortBy: 'relevance'
+    };
+
+    function getDomain(url) {
+      try {
+        return new URL(url).hostname.replace(/^www\./, '');
+      } catch (_) {
+        return '';
+      }
+    }
+
     function matchesQuery(item, query) {
       if (!query) return true;
       const haystack = [
@@ -210,16 +373,70 @@
       return haystack.includes(query.toLowerCase());
     }
 
+    function applyFilters(items) {
+      return items.filter((item) => {
+        const tagOk = !state.activeTag || (item.tags || []).includes(state.activeTag);
+        const queryOk = matchesQuery(item, state.query);
+        return tagOk && queryOk;
+      });
+    }
+
+    function sortItems(items) {
+      const copy = [...items];
+      if (state.sortBy === 'title-asc') {
+        copy.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+      } else if (state.sortBy === 'title-desc') {
+        copy.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
+      } else if (state.sortBy === 'domain-asc') {
+        copy.sort((a, b) => getDomain(a.url).localeCompare(getDomain(b.url)));
+      }
+      return copy;
+    }
+
+    function updateMetrics(filteredItems, allItems) {
+      const tags = new Set();
+      allItems.forEach((item) => (item.tags || []).forEach((t) => tags.add(t)));
+
+      document.getElementById('metric-total').textContent = allItems.length;
+      document.getElementById('metric-shown').textContent = filteredItems.length;
+      document.getElementById('metric-tags').textContent = tags.size;
+      document.getElementById('metric-filter').textContent = state.activeTag || 'Sem filtro';
+      document.getElementById('count').textContent = `${filteredItems.length} recurso(s)`;
+    }
+
+    function renderTagChips(items) {
+      const chips = document.getElementById('chips');
+      chips.innerHTML = '';
+
+      const counts = new Map();
+      items.forEach((item) => {
+        (item.tags || []).forEach((tag) => {
+          counts.set(tag, (counts.get(tag) || 0) + 1);
+        });
+      });
+
+      [...counts.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .forEach(([tag, n]) => {
+          const btn = document.createElement('button');
+          btn.className = `chip${state.activeTag === tag ? ' active' : ''}`;
+          btn.type = 'button';
+          btn.textContent = `${tag} (${n})`;
+          btn.addEventListener('click', () => {
+            state.activeTag = state.activeTag === tag ? '' : tag;
+            render();
+          });
+          chips.appendChild(btn);
+        });
+    }
+
     function renderResources(items) {
       const list = document.getElementById('list');
       const empty = document.getElementById('empty');
-      const count = document.getElementById('count');
       list.innerHTML = '';
-      count.textContent = `${items.length} recurso(s)`;
 
       if (!items.length) {
         empty.style.display = 'block';
-        empty.textContent = 'Nenhum resultado encontrado.';
         return;
       }
 
@@ -237,6 +454,10 @@
         link.textContent = item.title || item.url;
         title.appendChild(link);
 
+        const meta = document.createElement('div');
+        meta.className = 'item-meta';
+        meta.textContent = getDomain(item.url);
+
         const desc = document.createElement('p');
         desc.textContent = item.description || '';
 
@@ -250,26 +471,51 @@
         });
 
         card.appendChild(title);
+        card.appendChild(meta);
         if (item.description) card.appendChild(desc);
         if ((item.tags || []).length) card.appendChild(tags);
         list.appendChild(card);
       });
     }
 
+    function render() {
+      const filtered = applyFilters(state.allItems);
+      const sorted = sortItems(filtered);
+
+      renderTagChips(state.allItems);
+      updateMetrics(sorted, state.allItems);
+      renderResources(sorted);
+    }
+
     async function loadResources() {
       const empty = document.getElementById('empty');
       const searchInput = document.getElementById('search');
+      const sortSelect = document.getElementById('sort');
+      const clearButton = document.getElementById('clear');
+
       try {
         const res = await fetch('resources.json', { cache: 'no-store' });
         const data = await res.json();
-        const allItems = Array.isArray(data.resources) ? data.resources : [];
-
-        renderResources(allItems);
+        state.allItems = Array.isArray(data.resources) ? data.resources : [];
+        render();
 
         searchInput.addEventListener('input', (event) => {
-          const query = event.target.value || '';
-          const filtered = allItems.filter((item) => matchesQuery(item, query));
-          renderResources(filtered);
+          state.query = event.target.value || '';
+          render();
+        });
+
+        sortSelect.addEventListener('change', (event) => {
+          state.sortBy = event.target.value || 'relevance';
+          render();
+        });
+
+        clearButton.addEventListener('click', () => {
+          state.query = '';
+          state.activeTag = '';
+          state.sortBy = 'relevance';
+          searchInput.value = '';
+          sortSelect.value = 'relevance';
+          render();
         });
       } catch (e) {
         empty.style.display = 'block';
