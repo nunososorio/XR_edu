@@ -167,6 +167,96 @@
       "url": "https://pro.sony/ue_US/healthcare/imaging-innovations-insights/vr-surgical-training-education",
       "description": "Ensino medico imersivo com visualizacao de procedimentos no bloco operatorio.",
       "tags": ["vr", "education", "surgery"]
+    },
+    {
+      "title": "Nanome",
+      "url": "https://nanome.ai/",
+      "description": "Plataforma VR de modelacao molecular colaborativa para biologia estrutural e quimica computacional.",
+      "tags": ["stem", "chemistry", "biology", "vr", "freemium", "higher-ed"]
+    },
+    {
+      "title": "MoleculARweb",
+      "url": "https://molecularweb.epfl.ch/",
+      "description": "Plataforma WebAR open-source para ensino de quimica com marcadores impressos e suporte em portugues.",
+      "tags": ["stem", "chemistry", "webar", "ar", "free", "portuguese"]
+    },
+    {
+      "title": "MolecuLAR",
+      "url": "https://chagunda.github.io/moleculAR/",
+      "description": "App mobile AR (iOS/Android) com QR codes para visualizacao 3D de estruturas de quimica organica.",
+      "tags": ["stem", "chemistry", "ar", "mobile", "free"]
+    },
+    {
+      "title": "RApp Chemistry",
+      "url": "https://periodicos.ufac.br/index.php/SciNat/article/view/6097/3861",
+      "description": "Aplicacao AR para tabela periodica e estrutura atomica, orientada ao contexto escolar brasileiro.",
+      "tags": ["stem", "chemistry", "ar", "free", "portuguese", "k12"]
+    },
+    {
+      "title": "Labster",
+      "url": "https://www.labster.com/",
+      "description": "Ecossistema de laboratorios virtuais com simulacoes gamificadas para ciencias no secundario e superior.",
+      "tags": ["stem", "virtual-lab", "simulation", "paid", "higher-ed"]
+    },
+    {
+      "title": "PraxiLabs",
+      "url": "https://praxilabs.com/",
+      "description": "Laboratorios virtuais 3D com assistente de IA e acesso multiplataforma via browser e mobile.",
+      "tags": ["stem", "virtual-lab", "simulation", "freemium", "ai", "bilingual"]
+    },
+    {
+      "title": "VRLab Academy",
+      "url": "https://www.vrlabacademy.com/",
+      "description": "Suite de laboratorios virtuais alinhada com curriculos internacionais (IB, AP, NGSS, GCSE).",
+      "tags": ["stem", "virtual-lab", "vr", "paid", "k12"]
+    },
+    {
+      "title": "Vic's Science Studio",
+      "url": "https://xreadylab.com/blog/vr-chemistry-resources-2025/",
+      "description": "Suite VR de quimica com simulacao fisica para treino seguro de reacoes e procedimentos.",
+      "tags": ["stem", "chemistry", "vr", "paid", "simulation"]
+    },
+    {
+      "title": "Futuclass",
+      "url": "https://futuclass.com/",
+      "description": "Modulos VR gamificados para fisica e quimica no 7.o-9.o ano com foco em envolvimento e retencao.",
+      "tags": ["stem", "chemistry", "physics", "game", "paid", "k12"]
+    },
+    {
+      "title": "MEL VR Science Simulations",
+      "url": "https://melscience.com/US-en/vr/",
+      "description": "Licoes VR de micro-learning (3-7 min) para ligar fenomenos macroscopicos a teoria atomica.",
+      "tags": ["stem", "chemistry", "physics", "vr", "freemium", "k12"]
+    },
+    {
+      "title": "HoloLAB Champions",
+      "url": "https://hololabchampions.schellgames.com/",
+      "description": "Jogo VR para treino de competencias psicomotoras e protocolos de seguranca em laboratorio.",
+      "tags": ["stem", "chemistry", "vr", "game", "free", "free-for-education", "k12"]
+    },
+    {
+      "title": "3D Organon",
+      "url": "https://www.3dorganon.com/",
+      "description": "Plataforma VR de anatomia e imagem medica com 18.000+ estruturas e suporte em portugues.",
+      "tags": ["medical", "anatomy", "vr", "freemium", "portuguese", "professional-training"]
+    },
+    {
+      "title": "VictoryXR / VXRLabs",
+      "url": "https://www.victoryxr.com/",
+      "description": "Plataforma de metaversidades e laboratorios imersivos com tutores de IA para instituicoes.",
+      "tags": ["stem", "metaverse", "vr", "paid", "ai"]
+    },
+    {
+      "title": "ClassVR",
+      "url": "https://www.classvr.com/",
+      "description": "Ecossistema fechado com headsets dedicados e gestao centralizada para escolas K-12.",
+      "tags": ["stem", "vr", "paid", "k12", "classroom-management"]
+    },
+    {
+      "title": "Inspirit VR",
+      "url": "https://inspiritvr.com/",
+      "description": "Hub XR para STEM com conteudos alinhados a standards e modulos AR de alta acessibilidade.",
+      "tags": ["stem", "vr", "ar", "paid", "k12", "higher-ed"]
     }
   ]
 }
