@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Colecao publica de recursos XR educativos">
+  <title>XR Edu Collection</title>
+  <style>
+    :root {
+      --bg: #f3f5fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #3556d8;
+      --accent: #0ea5a4;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Segoe UI, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #e8eeff 0%, var(--bg) 220px);
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+    }
+    .hero p {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .meta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+    .item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fff;
+    }
+    .item h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+    }
+    .item p {
+      margin: 0 0 8px;
+      color: var(--muted);
+    }
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .tag {
+      font-size: 0.78rem;
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: #eef2ff;
+      color: #374151;
+      border: 1px solid #dbe3ff;
+    }
+    .empty {
+      color: var(--muted);
+      padding: 10px;
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Colecao XR Edu</h1>
+      <p><strong>PT:</strong> Este e o catalogo publico de recursos XR com valor pedagogico.</p>
+      <p><strong>EN:</strong> This is the public catalog of XR resources with pedagogical value.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/nunososorio/XR_edu/issues/new?template=resource_submission.yml">Submeter recurso / Submit resource</a>
+        <a class="btn" href="documentation-index.md">Guia / Docs</a>
+      </div>
+      <div class="meta">
+        <span id="count">0 recursos</span>
+        <span>Atualizado automaticamente via GitHub Pages</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div id="list" class="list"></div>
+      <div id="empty" class="empty" style="display:none;">
+        Ainda nao ha recursos publicados. Use o botao de submissao para enviar o primeiro.
+      </div>
+    </section>
+  </div>
+
+  <script>
+    async function loadResources() {
+      const list = document.getElementById('list');
+      const empty = document.getElementById('empty');
+      const count = document.getElementById('count');
+      try {
+        const res = await fetch('resources.json', { cache: 'no-store' });
+        const data = await res.json();
+        const items = Array.isArray(data.resources) ? data.resources : [];
+
+        count.textContent = `${items.length} recurso(s)`;
+
+        if (!items.length) {
+          empty.style.display = 'block';
+          return;
+        }
+
+        items.forEach((item) => {
+          const card = document.createElement('article');
+          card.className = 'item';
+
+          const title = document.createElement('h3');
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = item.title || item.url;
+          title.appendChild(link);
+
+          const desc = document.createElement('p');
+          desc.textContent = item.description || '';
+
+          const tags = document.createElement('div');
+          tags.className = 'tags';
+          (item.tags || []).forEach((tag) => {
+            const span = document.createElement('span');
+            span.className = 'tag';
+            span.textContent = tag;
+            tags.appendChild(span);
+          });
+
+          card.appendChild(title);
+          if (item.description) card.appendChild(desc);
+          if ((item.tags || []).length) card.appendChild(tags);
+          list.appendChild(card);
+        });
+      } catch (e) {
+        empty.style.display = 'block';
+        empty.textContent = 'Nao foi possivel carregar os recursos agora. Tente novamente.';
+      }
+    }
+
+    loadResources();
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "resources": [
+    {
+      "title": "Google Arts & Culture - Experiencias Imersivas",
+      "url": "https://artsandculture.google.com/",
+      "description": "Colecao de experiencias culturais e educativas com potencial para contexto XR.",
+      "tags": ["experience", "culture", "education"]
+    }
+  ]
+}
