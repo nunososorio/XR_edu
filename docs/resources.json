@@ -1,10 +1,172 @@
 {
   "resources": [
     {
-      "title": "Google Arts & Culture - Experiencias Imersivas",
-      "url": "https://artsandculture.google.com/",
-      "description": "Colecao de experiencias culturais e educativas com potencial para contexto XR.",
-      "tags": ["experience", "culture", "education"]
+      "title": "Atlantic Health System's Use of HoloLens in Orthopedic Surgery",
+      "url": "https://ahs.atlantichealth.org/about-us/stay-connected/news/content-central/2023/mixed-reality-technology.html",
+      "description": "HoloLens para modelos 3D de TAC em planeamento e execucao cirurgica ortopedica.",
+      "tags": ["surgery", "hololens", "orthopedics"]
+    },
+    {
+      "title": "Philips and Microsoft's AR Concept for Image-Guided Therapy",
+      "url": "https://www.usa.philips.com/a-w/about/news/archive/standard/news/press/2019/20190224-philips-showcases-unique-augmented-reality-concept-for-image-guided-minimally-invasive-therapies-developed-with-microsoft.html",
+      "description": "Conceito AR com HoloLens 2 para terapias minimamente invasivas guiadas por imagem.",
+      "tags": ["surgery", "ar", "hololens"]
+    },
+    {
+      "title": "Pixee Medical Knee+ with Vuzix Smart Glasses",
+      "url": "https://ir.vuzix.com/news-events/press-releases/detail/1790/first-knee-replacement-surgery-successfully-completed-using",
+      "description": "Navegacao AR para artroplastia total do joelho com oculos inteligentes.",
+      "tags": ["surgery", "ar", "vuzix"]
+    },
+    {
+      "title": "Augmedics xvision Spine System",
+      "url": "https://augmedics.com/",
+      "description": "Sistema AR para navegacao em cirurgia da coluna com visualizacao holografica.",
+      "tags": ["surgery", "ar", "spine"]
+    },
+    {
+      "title": "Brainlab Spine Mixed Reality Navigation",
+      "url": "https://www.brainlab.com/surgery-products/overview-spinal-trauma-products/spine-mixed-reality-navigation/",
+      "description": "Navegacao de coluna com mixed reality e sobreposicao de imagem pre-operatoria.",
+      "tags": ["surgery", "mr", "spine"]
+    },
+    {
+      "title": "Accenture and CHRISTUS Health AR Solution",
+      "url": "https://www.accenture.com/us-en/case-studies/technology/microsoft-hololens-surgery",
+      "description": "Acesso hands-free a dados clinicos e modelos 3D durante cirurgia.",
+      "tags": ["surgery", "ar", "hololens"]
+    },
+    {
+      "title": "Medacta NextAR Platform",
+      "url": "https://nextar.medacta.com/",
+      "description": "Visualizacao biomecanica em tempo real com smart glasses em cirurgia.",
+      "tags": ["surgery", "ar", "navigation"]
+    },
+    {
+      "title": "Levita MARS with Meta Quest 3",
+      "url": "https://www.levita.com/blog/worlds-first-robotic-surgery-using-meta-quest-and-3d-visualization-demonstrate-a-real-world-application-of-augmented-reality-ar",
+      "description": "Combinacao de AR e visualizacao 3D em cirurgia robotica com Meta Quest 3.",
+      "tags": ["surgery", "meta-quest", "robotics"]
+    },
+    {
+      "title": "eXeX Platform on Apple Vision Pro and HoloLens",
+      "url": "https://www.prnewswire.com/news-releases/exex-and-cromwell-hospital-pioneer-the-first-use-of-apple-vision-pro-in-uk-surgery-302085906.html",
+      "description": "Plataforma de workflow cirurgico touch-free para equipas no bloco operatorio.",
+      "tags": ["surgery", "vision-pro", "workflow"]
+    },
+    {
+      "title": "UC San Diego Trial on Apple Vision Pro in OR",
+      "url": "https://health.ucsd.edu/news/press-releases/2024-09-16-clinical-trial-evaluates-spatial-computing-app-on-apple-vision-pro-in-operating-room/",
+      "description": "Ensaio clinico para streaming de dados cirurgicos em tempo real no Vision Pro.",
+      "tags": ["surgery", "vision-pro", "clinical-trial"]
+    },
+    {
+      "title": "Cromwell Hospital Use of Apple Vision Pro",
+      "url": "https://www.cromwellhospital.com/newsroom/news/exex-and-cromwell-hospital-pioneer-the-first-use-of-apple-vision-pro-in-uk-surgery/",
+      "description": "Uso do Vision Pro por equipa de enfermagem em cirurgia de coluna.",
+      "tags": ["surgery", "vision-pro", "hospital"]
+    },
+    {
+      "title": "AdventHealth Use of Apple Vision Pro",
+      "url": "https://www.adventhealth.com/news/surgical-team-adventhealth-performs-worlds-first-its-kind-procedure-using-apple-vision-pro-mixed",
+      "description": "Aplicacao do Vision Pro em artroplastia e cirurgias minimamente invasivas.",
+      "tags": ["surgery", "vision-pro", "mixed-reality"]
+    },
+    {
+      "title": "GEM Hospital Use of Apple Vision Pro",
+      "url": "https://www.thehindu.com/news/cities/chennai/gem-hospital-uses-apple-vision-pro-mixed-reality-headset-for-surgeries/article68153666.ece",
+      "description": "Apoio a laparoscopia com visualizacao ampliada e referencia a TAC/RM.",
+      "tags": ["surgery", "vision-pro", "laparoscopy"]
+    },
+    {
+      "title": "Stryker myMako on Apple Vision Pro",
+      "url": "https://www.apple.com/newsroom/2024/03/apple-vision-pro-unlocks-new-opportunities-for-health-app-developers/",
+      "description": "Visualizacao de planeamento 3D para cirurgia articular robot-assistida.",
+      "tags": ["surgery", "vision-pro", "planning"]
+    },
+    {
+      "title": "Medivis SurgicalAR on HoloLens 2",
+      "url": "https://www.medivis.com/surgical-ar",
+      "description": "Software AR com integracao de imagem medica para planeamento e guia intraoperatorio.",
+      "tags": ["surgery", "hololens", "medical-imaging"]
+    },
+    {
+      "title": "SimBioSys TumorSight with Magic Leap",
+      "url": "https://www.businesswire.com/news/home/20240416255882/en/A-New-Era-in-Precision-Medicine-SimBioSys-Announces-Strategic-Collaboration-with-Magic-Leap-to-Advance-TumorSight-Platform-with-AR-Integration",
+      "description": "Visualizacao 3D de tumores com integracao AR para planeamento cirurgico.",
+      "tags": ["surgery", "ar", "oncology"]
+    },
+    {
+      "title": "Proprio Paradigm Surgical Guidance System",
+      "url": "https://proprio.ai/technology",
+      "description": "Sistema de navegacao com IA e visualizacao 3D intraoperatoria sem radiacao.",
+      "tags": ["surgery", "ai", "navigation"]
+    },
+    {
+      "title": "ImmersiveTouch Surgical Plan Platform",
+      "url": "https://immersivetouch.com/",
+      "description": "Plataforma VR para planeamento cirurgico, treino e colaboracao de equipas.",
+      "tags": ["surgery", "vr", "training"]
+    },
+    {
+      "title": "SentiAR Holographic AR Platform",
+      "url": "https://sentiar.com/",
+      "description": "Visualizacao holografica AR em tempo real para apoio cirurgico hands-free.",
+      "tags": ["surgery", "ar", "holographic"]
+    },
+    {
+      "title": "Stanford Mixed-Reality System for Breast Planning",
+      "url": "https://med.stanford.edu/bmrgroup/PublicationHighlights/HoloLensSurgicalPlanning.html",
+      "description": "Sistema MR para localizacao tumoral e planeamento de cirurgia mamaria.",
+      "tags": ["surgery", "mr", "breast"]
+    },
+    {
+      "title": "Medical Augmented Intelligence Body Map",
+      "url": "https://www.mai.ai/",
+      "description": "Ferramentas AR/VR com modelos anatomicos 3D para ensino e treino medico.",
+      "tags": ["education", "ar", "vr"]
+    },
+    {
+      "title": "Osso VR Surgical Training Platform",
+      "url": "https://www.ossovr.com/",
+      "description": "Simulacoes VR para treino cirurgico com avaliacao de desempenho.",
+      "tags": ["vr", "training", "orthopedics"]
+    },
+    {
+      "title": "PrecisionOS VR Training Modules",
+      "url": "https://www.precisionostech.com/",
+      "description": "Simuladores VR para treino em varias especialidades cirurgicas.",
+      "tags": ["vr", "training", "surgery"]
+    },
+    {
+      "title": "FundamentalVR Fundamental Surgery",
+      "url": "https://fundamentalsurgery.com/",
+      "description": "Treino espacial e gestual com Vision Pro e plataforma VR com haptics.",
+      "tags": ["vr", "vision-pro", "training"]
+    },
+    {
+      "title": "Medicalholodeck on Meta Quest",
+      "url": "https://www.medicalholodeck.com/en/",
+      "description": "Anatomia 3D, dissecao virtual e colaboracao em ambiente imersivo.",
+      "tags": ["meta-quest", "anatomy", "education"]
+    },
+    {
+      "title": "Immertec on Meta Quest",
+      "url": "https://www.meta.com/experiences/immertec/6693038100756032/",
+      "description": "Observacao remota de cirurgia em VR com interacao em tempo real.",
+      "tags": ["meta-quest", "vr", "telepresence"]
+    },
+    {
+      "title": "Level Ex Surgical Simulation Games",
+      "url": "https://www.levelex.com/",
+      "description": "Jogos de simulacao medica em mobile e XR para treino clinico.",
+      "tags": ["simulation", "training", "xr"]
+    },
+    {
+      "title": "Hospital Clinic Barcelona and Sony VR Collaboration",
+      "url": "https://pro.sony/ue_US/healthcare/imaging-innovations-insights/vr-surgical-training-education",
+      "description": "Ensino medico imersivo com visualizacao de procedimentos no bloco operatorio.",
+      "tags": ["vr", "education", "surgery"]
     }
   ]
 }
