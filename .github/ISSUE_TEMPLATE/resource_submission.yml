@@ -13,6 +13,9 @@ body:
         PT: Preencha os campos abaixo para enviar um recurso XR.
         EN: Fill the fields below to submit an XR resource.
 
+        PT: Se o recurso tiver uma versao gratuita para educacao, selecione essa opcao. Na revisao, isso pode originar a tag `free`.
+        EN: If the resource has a free version for education, select that option. During review, this may become the `free` tag.
+
   - type: input
     id: resource_url
     attributes:
@@ -48,6 +51,20 @@ body:
         - Experience
         - Article/Research
         - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pricing_model
+    attributes:
+      label: "Acesso e preco / Access and pricing"
+      description: "Indique se existe versao gratuita, especialmente para educacao."
+      options:
+        - Free
+        - Free for education
+        - Freemium
+        - Paid
+        - Unknown
     validations:
       required: true
 
