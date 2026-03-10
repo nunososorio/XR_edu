@@ -257,6 +257,48 @@
       "url": "https://inspiritvr.com/",
       "description": "Hub XR para STEM com conteudos alinhados a standards e modulos AR de alta acessibilidade.",
       "tags": ["stem", "vr", "ar", "paid", "k12", "higher-ed"]
+    },
+    {
+      "title": "CryoVR",
+      "url": "https://va.tech.purdue.edu/cryoVR/",
+      "description": "Sistema imersivo VR com feedback haptico passivo para treino de preparacao de bio-amostras para CryoEM.",
+      "tags": ["stem", "vr", "experience", "higher-ed", "free", "free-for-education", "lab-training"]
+    },
+    {
+      "title": "CDC OneLab VR",
+      "url": "https://reach.cdc.gov/onelabvr/vr-ready-laboratories-program",
+      "description": "Ambiente VR do CDC para treino seguro de profissionais de laboratorio clinico e saude publica.",
+      "tags": ["vr", "experience", "free", "professional-training", "lab-safety", "public-health"]
+    },
+    {
+      "title": "Meta Quest App (ID: 6285574701462946)",
+      "url": "https://www.meta.com/pt-pt/experiences/livro/6285574701462946/",
+      "description": "Gateway de aplicacao virtual/mixed reality na loja Meta Quest para explorar conteudo imersivo e ambientes espaciais.",
+      "tags": ["app-xr", "meta-quest", "portuguese", "general", "unknown-pricing", "spatial-computing"]
+    },
+    {
+      "title": "MolecularWebXR",
+      "url": "https://molecularwebxr.org",
+      "description": "Plataforma gratuita web para VR/AR multiutilizador focada em educacao e discussao cientifica em quimica e biologia estrutural.",
+      "tags": ["stem", "webar", "vr", "ar", "free", "higher-ed", "collaboration", "chemistry"]
+    },
+    {
+      "title": "UCSF ChimeraX",
+      "url": "https://www.rbvi.ucsf.edu/chimerax",
+      "description": "Programa de visualizacao interativa com suporte VR para modelos moleculares, mapas de cryo-EM e imagem medica.",
+      "tags": ["stem", "app-xr", "vr", "higher-ed", "free", "free-for-education", "structural-biology"]
+    },
+    {
+      "title": "vLUME",
+      "url": "https://www.lumevr.com",
+      "description": "Software VR para renderizacao e analise de grandes datasets 3D de microscopia de localizacao de molecula unica.",
+      "tags": ["app-xr", "vr", "professional-training", "free", "free-for-education", "microscopy", "biology"]
+    },
+    {
+      "title": "MIMBUS Chemistry",
+      "url": "https://mimbus.com/en/clients_post/cnam-eng/",
+      "description": "Digital twin de laboratorio de quimica para treino de procedimentos seguros na industria quimica, farmaceutica e agroalimentar.",
+      "tags": ["stem", "experience", "paid", "professional-training", "chemistry", "lab-safety"]
     }
   ]
 }
