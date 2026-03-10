@@ -79,6 +79,23 @@
       padding: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
+    .search-wrap {
+      margin-bottom: 12px;
+    }
+    .search-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.98rem;
+      outline: none;
+      background: #fff;
+      color: var(--text);
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(53, 86, 216, 0.12);
+    }
     .howto {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -171,6 +188,9 @@
     </section>
 
     <section class="panel">
+      <div class="search-wrap">
+        <input id="search" class="search-input" type="search" placeholder="Pesquisar recursos... / Search resources..." aria-label="Pesquisar recursos">
+      </div>
       <div id="list" class="list"></div>
       <div id="empty" class="empty" style="display:none;">
         Ainda nao ha recursos publicados. Use o botao de submissao para enviar o primeiro.
@@ -179,50 +199,77 @@
   </div>
 
   <script>
-    async function loadResources() {
+    function matchesQuery(item, query) {
+      if (!query) return true;
+      const haystack = [
+        item.title || '',
+        item.description || '',
+        item.url || '',
+        ...(Array.isArray(item.tags) ? item.tags : [])
+      ].join(' ').toLowerCase();
+      return haystack.includes(query.toLowerCase());
+    }
+
+    function renderResources(items) {
       const list = document.getElementById('list');
       const empty = document.getElementById('empty');
       const count = document.getElementById('count');
+      list.innerHTML = '';
+      count.textContent = `${items.length} recurso(s)`;
+
+      if (!items.length) {
+        empty.style.display = 'block';
+        empty.textContent = 'Nenhum resultado encontrado.';
+        return;
+      }
+
+      empty.style.display = 'none';
+
+      items.forEach((item) => {
+        const card = document.createElement('article');
+        card.className = 'item';
+
+        const title = document.createElement('h3');
+        const link = document.createElement('a');
+        link.href = item.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = item.title || item.url;
+        title.appendChild(link);
+
+        const desc = document.createElement('p');
+        desc.textContent = item.description || '';
+
+        const tags = document.createElement('div');
+        tags.className = 'tags';
+        (item.tags || []).forEach((tag) => {
+          const span = document.createElement('span');
+          span.className = 'tag';
+          span.textContent = tag;
+          tags.appendChild(span);
+        });
+
+        card.appendChild(title);
+        if (item.description) card.appendChild(desc);
+        if ((item.tags || []).length) card.appendChild(tags);
+        list.appendChild(card);
+      });
+    }
+
+    async function loadResources() {
+      const empty = document.getElementById('empty');
+      const searchInput = document.getElementById('search');
       try {
         const res = await fetch('resources.json', { cache: 'no-store' });
         const data = await res.json();
-        const items = Array.isArray(data.resources) ? data.resources : [];
+        const allItems = Array.isArray(data.resources) ? data.resources : [];
 
-        count.textContent = `${items.length} recurso(s)`;
+        renderResources(allItems);
 
-        if (!items.length) {
-          empty.style.display = 'block';
-          return;
-        }
-
-        items.forEach((item) => {
-          const card = document.createElement('article');
-          card.className = 'item';
-
-          const title = document.createElement('h3');
-          const link = document.createElement('a');
-          link.href = item.url;
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-          link.textContent = item.title || item.url;
-          title.appendChild(link);
-
-          const desc = document.createElement('p');
-          desc.textContent = item.description || '';
-
-          const tags = document.createElement('div');
-          tags.className = 'tags';
-          (item.tags || []).forEach((tag) => {
-            const span = document.createElement('span');
-            span.className = 'tag';
-            span.textContent = tag;
-            tags.appendChild(span);
-          });
-
-          card.appendChild(title);
-          if (item.description) card.appendChild(desc);
-          if ((item.tags || []).length) card.appendChild(tags);
-          list.appendChild(card);
+        searchInput.addEventListener('input', (event) => {
+          const query = event.target.value || '';
+          const filtered = allItems.filter((item) => matchesQuery(item, query));
+          renderResources(filtered);
         });
       } catch (e) {
         empty.style.display = 'block';
